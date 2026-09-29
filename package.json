@@ -1,0 +1,31 @@
+{
+  "name": "x402-search-agent",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A search agent that pays per search with x402, through the Cloudflare Monetization Gateway. No API key.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "wallet:new": "tsx scripts/wallet-new.ts",
+    "doctor": "tsx scripts/doctor.ts",
+    "curl-demo": "bash scripts/curl-demo.sh",
+    "search": "tsx src/search.ts",
+    "agent": "tsx src/agent.ts",
+    "minimal": "tsx examples/minimal.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "latest",
+    "@x402/evm": "latest",
+    "@x402/fetch": "latest",
+    "dotenv": "^16.4.5",
+    "viem": "^2.21.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}
