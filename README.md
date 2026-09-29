@@ -21,7 +21,7 @@ Solid-state batteries are close but not yet at mass scale. Toyota is targetingâ€
 You need Node.js 20 or later, and about $1 of USDC on Base.
 
 ```bash
-git clone https://github.com/CeramicTeam/x402-search-agent && cd x402-search-agent
+git clone https://github.com/CeramicTeam/ceramic-x402-search-agent && cd ceramic-x402-search-agent
 npm install
 npm run wallet:new     # creates a demo wallet and saves its key to .env
 ```
@@ -107,8 +107,6 @@ sequenceDiagram
   participant Gateway as Cloudflare Monetization Gateway
   participant API as Ceramic search API
   Agent->>Gateway: POST /search
-  Gateway->>API: POST /search (unpaid)
-  API-->>Gateway: 401
   Gateway-->>Agent: 402 + PAYMENT-REQUIRED (price, network, recipient)
   Note over Agent: Check budget, sign USDC authorization
   Agent->>Gateway: POST /search + PAYMENT-SIGNATURE
