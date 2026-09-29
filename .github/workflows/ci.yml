@@ -1,0 +1,17 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Repo structure check
+        run: |
+          test -f README.md || { echo "README.md is required but not found"; exit 1; }
+          echo "README.md found"
